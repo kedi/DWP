@@ -1,0 +1,16 @@
+{
+  "name": "discordapiwrapper",
+  "version": "1.0.0",
+  "description": "Mhh... If you ever plan to use that, don't.",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "jsdoc": "^3.6.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Toasty",
+  "license": "ISC"
+}
