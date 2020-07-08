@@ -1,5 +1,5 @@
 {
-  "name": "discordapiwrapper",
+  "name": "@atoasty/discordwrapper",
   "version": "1.0.0",
   "description": "Mhh... If you ever plan to use that, don't.",
   "main": "index.js",
@@ -12,5 +12,6 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Toasty",
-  "license": "ISC"
+  "license": "ISC",
+  "repistory": "git://github.com/atoasty/discordwrapper.git"
 }
