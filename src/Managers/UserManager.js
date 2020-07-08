@@ -6,11 +6,13 @@ class User{
     }
     
     /**
-     * Returns to a user's information with an object.
+     * 
+     * @param {string} userID Returns to a user's information with an object.
      */
     async get(userID){
-        let userInfo = await this.client.getCallback(`/users/${userID}`, "get").catch(err => console.log(err))
+        if(typeof userID !== "string") return console.log(new Error("Please provide a valid User ID."))
 
+        let userInfo = await this.client.getCallback(`/users/${userID}`, "get").catch(err => console.log(err))
         let partialUser = new UserStructure(userInfo, this.client)
         
         return await userInfo ? await partialUser : null

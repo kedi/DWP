@@ -8,7 +8,7 @@ class GuildStructure{
     }
 
     /**
-     * Leaves the guild. Should be attached with Guild class.
+     * Leaves the guild. Should be attached with Guild Manager.
      */
     async leave(){
         return new Promise(async (resolve,reject) => {
