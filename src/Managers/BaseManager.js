@@ -3,6 +3,7 @@ const UserManager = require("./UserManager")
 const GuildManager = require("./GuildManager");
 const MessageManager = require("./MessageManager")
 const ChannelManager = require("./ChannelManager")
+const EventEmitter = require("../Events/Emitter")
 
 class Request {
     constructor(){
@@ -43,6 +44,8 @@ class Request {
         this.token = `Bot ${token}`
         await this.getCallback("/users/@me","get").then((res) => {
             console.log(`API connected with ${res.username}#${res.discriminator} (${res.id})!`)
+            
+            this.eventEmitter = new EventEmitter(this)
         }).catch(err => {
             console.error("Provided token is invalid.")
         })
