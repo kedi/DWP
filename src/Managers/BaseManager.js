@@ -4,6 +4,7 @@ const GuildManager = require("./GuildManager");
 const MessageManager = require("./MessageManager")
 const ChannelManager = require("./ChannelManager")
 const EventEmitter = require("../Events/Emitter")
+const eventHandler = require("../Events/Handler.js")
 
 class Request {
     constructor(){
@@ -13,6 +14,7 @@ class Request {
         this.guilds = new GuildManager(this)
         this.messages = new MessageManager(this)
         this.channels = new ChannelManager(this)
+        this.eventHandler = new eventHandler(this)
     }
     
     /**
@@ -38,7 +40,7 @@ class Request {
 
     /**
      * 
-     * @param {string} token The token of the Bot to start interacting with Discord API.
+     * @param {string} token The token of the Client to start interacting with Discord API.
      */
     async login(token){
         this.token = `Bot ${token}`
