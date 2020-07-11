@@ -1,7 +1,7 @@
 {
   "name": "@atoasty/discordwrapper",
   "version": "1.0.0",
-  "description": "Mhh... If you ever plan to use that, don't.",
+  "description": "Javascript wrapper for interacting with Discord API.",
   "main": "index.js",
   "dependencies": {
     "axios": "^0.19.2",
@@ -10,7 +10,9 @@
     "jsdoc": "^3.6.4",
     "ws": "^7.3.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^7.4.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
