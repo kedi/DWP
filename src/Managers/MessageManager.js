@@ -1,9 +1,12 @@
 class Message {
+
     constructor(client){
-        this.client = client
+
+        this.client = client;
+    
     }
 
     
 }
 
-module.exports = Message
+module.exports = Message;

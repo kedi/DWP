@@ -1,3 +1,3 @@
-const client = require("./src/Managers/BaseManager")
+const client = require("./src/Managers/BaseManager");
 
-module.exports = client
+module.exports = client;

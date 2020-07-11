@@ -1,9 +1,12 @@
 class Channel {
+
     constructor(client){
-        this.client = client
+
+        this.client = client;
+    
     }
 
     
 }
 
-module.exports = Channel
+module.exports = Channel;

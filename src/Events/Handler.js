@@ -1,7 +1,10 @@
 
 class Handler{
+
     constructor(client){
-        this.client = client
+
+        this.client = client;
+    
     }
 
     /**
@@ -10,8 +13,11 @@ class Handler{
      * @param {Object} packet The packet gathered from Discord API containing the information about the event.
      */
     async emitEvent(eventName, packet){
-        console.log(Object.keys(this.client))
+
+        console.log(Object.keys(this.client));
+    
     }
+
 }
 
-module.exports = Handler
+module.exports = Handler;

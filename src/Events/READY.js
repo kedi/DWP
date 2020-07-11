@@ -1,8 +1,11 @@
-const Emitter = require("./Emitter")
+const Emitter = require("./Emitter");
 
 class READY{
+
     constructor(client){
-        this.client = client
+
+        this.client = client;
+    
     }
 
     /**
@@ -11,9 +14,11 @@ class READY{
      * Ready event handler. Ready event is sent whenever the client makes a succesfull connection with Gateway.
      */
     async handle(packet){
-        this.client.eventHandler.emitEvent("ready", packet)
+
+        this.client.eventHandler.emitEvent("ready", packet);
+    
     }
 
 }
 
-module.exports = READY
+module.exports = READY;
