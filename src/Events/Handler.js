@@ -14,8 +14,8 @@ class Handler{
      */
     async emitEvent(eventName, packet){
 
-        console.log(Object.keys(this.client));
-    
+        this.client.eventEmitter.ws.emit(eventName, packet);
+
     }
 
 }

@@ -4,7 +4,7 @@ const GuildManager = require("./GuildManager");
 const MessageManager = require("./MessageManager");
 const ChannelManager = require("./ChannelManager");
 const EventEmitter = require("../Events/Emitter");
-const eventHandler = require("../Events/Handler.js");
+const EventHandler = require("../Events/Handler.js");
 
 class Request {
 
@@ -16,8 +16,9 @@ class Request {
         this.guilds = new GuildManager(this);
         this.messages = new MessageManager(this);
         this.channels = new ChannelManager(this);
-        this.eventHandler = new eventHandler(this);
-    
+        this.eventEmitter = new EventEmitter(this);
+        this.eventHandler = new EventHandler(this);
+        
     }
     
     /**
@@ -62,7 +63,6 @@ class Request {
 
             console.log(`API connected with ${res.username}#${res.discriminator} (${res.id})!`);
             
-            this.eventEmitter = new EventEmitter(this);
         
         }).
             catch(err => {

@@ -9,12 +9,12 @@ class EventEmitter{
 
         this.client = client;
         this.ws = new WebSocket("wss://gateway.discord.gg/?v=6&encoding=json");
-        this.client.ClientEventEmitter = ClientEventEmitter;
+        this.Emitter = ClientEventEmitter;
         
         /**
          * To create class for all events provided in the path.
          */
-        fs.readdir("./src/Events", async(err, files) => {
+        fs.readdir("./src/Events/GuildEvents/", async(err, files) => {
 
             files.map(eventFile => {
 
@@ -25,7 +25,7 @@ class EventEmitter{
                  */
                 if (eventName.toLowerCase() !== "emitter" && eventName.toLowerCase() !== "handler"){
 
-                    const file = require(`./${eventName}.js`);
+                    const file = require(`./GuildEvents/${eventName}.js`);
 
                     this[[`${eventName}`]] = new file(this.client);
 
@@ -44,7 +44,7 @@ class EventEmitter{
 
             if (WebSocketResponse.op != 10 && WebSocketResponse.t != null && Object.keys(this).includes(WebSocketResponse.t)){
 
-                this[[`${WebSocketResponse.t}`]].handle(WebSocketResponse).catch(err => err);
+                this[[`${WebSocketResponse.t}`]].handle(WebSocketResponse.d).catch(err => err);
 
             }
 
@@ -54,16 +54,16 @@ class EventEmitter{
             if (WebSocketResponse.op == 10){
 
                 await this.ws.send(`{
-            "op": 2,
-            "d": {
-            "token": "${this.client.token.replace("Bot ", "")}",
-            "properties": {
-              "$os": "linux",
-              "$browser": "@atoasty/discordwrapper",
-              "$device": "@atoasty/discordwrapper"
-            }
-          }
-        }`);
+                    "op": 2,
+                    "d": {
+                    "token": "${this.client.token.replace("Bot ", "")}",
+                    "properties": {
+                        "$os": "linux",
+                        "$browser": "@atoasty/discordwrapper",
+                        "$device": "@atoasty/discordwrapper"
+                    }
+                }
+                }`);
 
             }
         
