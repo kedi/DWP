@@ -1,21 +1,15 @@
-class READY{
+class READY {
+  constructor(client) {
+    this.client = client;
+  }
 
-    constructor(client){
-
-        this.client = client;
-    
-    }
-
-    /**
-     * 
-     * @param {Object} packet The packet of the event.
-     */
-    async handle(packet){
-
-        this.client.eventHandler.emitEvent("Ready", {});
-    
-    }
-
+  /**
+   *
+   * @param {Object} packet The packet of the event.
+   */
+  async handle(packet) {
+    this.client.eventHandler.emitEvent("Ready", {});
+  }
 }
 
 module.exports = READY;
