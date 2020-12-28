@@ -23,7 +23,7 @@ class Request {
    * @param {string} way The path of the request to send.
    * @param {string} method The method of the request.
    */
-  getCallback(way, method) {
+  async getCallback(way, method) {
     return await new Promise(async (resolve, reject) => {
       await axios({
         method,
