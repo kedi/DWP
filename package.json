@@ -4,7 +4,7 @@
   "description": "Javascript wrapper for interacting with Discord API.",
   "main": "index.js",
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "events": "^3.1.0",
     "fs": "0.0.1-security",
     "jsdoc": "^3.6.4",
