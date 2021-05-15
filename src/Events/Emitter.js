@@ -61,6 +61,16 @@ class EventEmitter {
                     }
                 }
                 }`);
+
+              /**
+               * Heartbeat ack to keep connection on-line.
+               */
+          setInterval(() => {
+            this.ws.send(`{
+              "op": 1,
+              "d": ${WebSocketResponse.s == null ? "null" : WebSocketResponse.s.reverse().split("")[0]}
+          }`);
+          },WebSocketResponse.d.heartbeat_interval)
       }
     });
   }
